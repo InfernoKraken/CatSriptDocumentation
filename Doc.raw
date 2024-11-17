@@ -1,0 +1,185 @@
+# Catscript Guide
+
+This document should be used to create a guide for catscript, to satisfy capstone requirement 4
+
+## Introduction
+
+Catscript is a simple scripting langauge.  Here is an example:
+
+```
+var x = "foo"
+print(x)
+```
+
+## Features
+
+### Type System
+Catscript is a statically typed programming language. The supported types in Catscript are as follows:
+
+- Integers
+- Strings
+- Booleans
+- Objects
+- Lists
+- Null
+
+Catscript will check that types are compatible and will throw type errors if there are any type conflicts.
+
+### Expressions
+
+#### Literal Expressions
+Catscript types can be expressed as Literal Expressions.
+
+```
+int x = 3
+string y = "Hello"
+boolean z = true
+object a = null
+list b = [1,2,3]
+```
+
+#### Additive & Factor Expressions
+
+Catscript supports basic arithmetic expressions.
+```
+var a = 1 + 1
+var b = 3 - 2
+var x = 5 * 5
+var y = 100 / 25
+```
+
+Catscript also supports string concatenation with the "+" operator.
+
+```
+var first = "John"
+var last = "Smith"
+var fullName = first + " " +  last
+```
+
+#### Equality & Comparison Expressions
+
+Catscript supports both comparison and equality expressions.
+These expressions include: greater than (>), Less than (<), greater or equal to (>=), less than or equal to (<=), equals (==), and not equals (!=).
+```
+var x = 10
+var y = 9
+if(x > y){
+...
+}
+```
+
+#### Unary Expression
+
+Catscript supports the negative sign (-) for numbers and the logical negation sign (!) for booleans.
+
+```
+var x = -3
+var y = true
+var z = !y
+```
+### Statements
+
+#### Variable Declaration & Assignment
+
+Variables can be declared in Catscript using the following syntax.
+
+```
+var x = 10
+var y = "bar"
+var z = true
+```
+Variables declared with the 'var' keyword feature type inference.
+
+Lists can be declared either with or without an explicit type declaration.
+The type of lists without a type declaration is also inferred and is assigned based on the component type of the list.
+```
+var listA list<string> = ["apple", "orange", "bannana"]
+var listB list = [1,2,3]
+```
+
+Variables can be assigned and reassigned in Catscript as long as the types are compatible.
+```
+var x = 10
+var y = 25
+x = y
+```
+
+#### If Statements
+
+Catscript supports If Statements, If-Else Statements, and Else-If Statements.
+The syntax for If Statements is as follows:
+
+```
+if(expression){
+...
+}
+```
+Where the expression is any boolean expression.
+
+
+If-Else Statements have very similar syntax.
+```
+if(expression){
+...
+}else{
+...
+}
+```
+
+Else-If Statements require a boolean expression.
+
+```
+if(expression){
+...
+}else if(expression){
+...
+}
+```
+Catscript also supports any number of Else-If Statements following an If Statement.
+
+#### Print Statement
+
+Catscript allows printing output to the console using Print Statements.
+Print Statement syntax is as follows:
+
+```
+var x = "Hello World!"
+print(x)
+```
+
+#### For Loops
+
+Catscript supports For Loops for iterating over lists. In Catscript, For Loops use the more modern For Loop syntax.
+
+```
+var x = ["Alice", "Bob", "Jill"]
+for(name in x){
+...
+}
+```
+For Loops will iterate over each item in the given list. Each item is accessible with the identifier declared in the For Loop
+declaration.
+
+### Functions
+
+Functions in Catscript are defined and called in very similarly to other programming languages.
+
+```
+function foo(){
+    print("bar")
+}
+foo()
+```
+
+Functions can also have a return type or typed input parameters.
+
+```
+function bar(a:int, b:int) :boolean{
+    if(a > b){
+        return true
+    }else{
+        return false
+    } 
+}
+bar(10,9)
+```
